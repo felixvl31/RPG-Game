@@ -16,6 +16,14 @@ var game = {
   
 $(document).ready(function() {
 
+//Append Restart Button
+  function AppendRestartButton(target){
+    var RestartButton = $("<button>");
+    RestartButton.addClass("restart");
+    RestartButton.text("Restart");
+    $(target).append(RestartButton);
+  }
+
 //Create character cards
   for (i=0;i<game.charName.length;i++) {
     var cardChar = $("<div>");
@@ -69,17 +77,20 @@ $("body").on("click",".enemy", function(){
   }
 });
 
-  $(".Attack").on("click", function(){
-    if (game.attackPermit){
+//Attack functions
+$(".Attack").on("click", function(){
+  //Check it click on Attack button is permitted
+  if (game.attackPermit){
+    //Clean Information Div, create H3 tags and get Defender name
     $(".Information").empty();
     var currentInfo = $("<h3>");
     var currentInfo2 = $("<h3>");
     var currentDefender = ($(".defender").attr("name"));
 
-    //Attack to Enemy
+    //Attack to Enemy calculation
     game.enemyHP -= game.userAttack;
     
-    //Atack from Enemy
+    //Atack from Enemy calculation & Display attack from enemy
     if (game.enemyHP <0){
       game.userHP;
     }
@@ -88,51 +99,50 @@ $("body").on("click",".enemy", function(){
       currentInfo2.text($(".defender").attr("name")+ " attacked you back for "+game.enemyAttack+ " damage")
     }
 
-  
+    //Assign User & Defender HP on cards and display User Attack    
     $(".user>.HP").text(game.userHP);
     $(".defender>.HP").text(game.enemyHP);
     currentInfo.text("You attacked " + currentDefender + " for "+ game.userAttack+ " damage" );
     
+    //Display user and defender attacks if needed
     $(".Information").append(currentInfo);
     $(".Information").append(currentInfo2);
 
-    if (game.userHP<0){
-      $(".Information").append("You have been defeated....Game Over");
-      var RestartButton = $("<button>");
-      RestartButton.addClass("restart");
-      RestartButton.text("Restart");
-      $(".Information").append(RestartButton);
+    //If user HP gets lower than 0, Display that user has been defeated and create a Restart Button, remove permit to attack.
+    if (game.userHP<=0){
+      $(".Information").append("<h3>"+"You have been defeated....Game Over"+"</h3>");
+      AppendRestartButton(".Information");
       game.attackPermit = false;
-      
     }
 
+    //If enemy HP gets to 0
     if (game.enemyHP<=0){
+      //Increase won battles
       game.battlesCounter+=1;
+      //Create a Restart button & display that user defeated all enemies available
       if (game.battlesCounter==3){
-      $(".Information").append("You have defeated all the enemies");
-      var RestartButton = $("<button>");
-      RestartButton.addClass("restart");
-      RestartButton.text("Restart");
-      $(".Information").append(RestartButton);
+        $(".Information").append("<h3>"+"You have defeated all the enemies"+"</h3>");
+        AppendRestartButton(".Information");
       }
+      //Display that user defeated the enemy
       else{
-      $(".Information").append("You have defeated "+$(".defender").attr("name")+", you can choose to fight another enemy");
-
+        $(".Information").append("<h3>"+"You have defeated "+$(".defender").attr("name")+", you can choose to fight another enemy"+"</h3>");
       }
+
+      //Clean Defender Div, Permit to attack revocked and user can select another enemy
       $(".Defender").empty();
       game.enemySelected = false;
       game.attackPermit = false;
-
     }
-
-  $("body").on("click",".restart",function() {
-    location.reload();
-  });
-
 
     //Increase User Attack
     game.userAttack = parseInt(game.userAttack) + parseInt(game.userBaseAttack);
-    }
-  });
+  }
+});
+
+//Use Restart Button
+$("body").on("click",".restart",function() {
+  location.reload();
+});
 
 });
