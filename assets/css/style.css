@@ -1,17 +1,28 @@
 /* Background */
 body {
+  background-image: url("../images/pattern.png");
+  background-repeat:repeat;
+}
+.content {
   background-image: url("../images/crait.png");
+  background-size: cover;
   background-repeat: no-repeat;
-  background-size: auto;
-  opacity: 0.9;
+  background-position: center; 
   color:black;
+  border: 10px groove red;
+}
+.container{
+  margin-top:20px;
 }
 
 /* Header */
 h1{
+  margin: 15px 0;
   font-size:60px;
   text-shadow: 2px 2px 1px red;
   text-align: center;
+  background-color: rgb(251,255,254,0.5);
+  border-radius: 5px;
 }
 
 /* Character Cards */
@@ -33,52 +44,62 @@ h4{
   text-align: center;
 }
 .enemy{
-background-color: #b62321;
-border: 2px solid #b6241f;
+  background-color: #b62321;
+  border: 2px solid #b6241f;
 }
 .defender{
-background-color: #787878;
-border: 2px solid #535353;
+  background-color: #787878;
+  border: 2px solid #535353;
 }
 
 /* Texts */
 h2{
   font-size:30px;
-  text-shadow: 1px 1px 1px red;
+  text-shadow: 1px 1px red;
   background-color: rgb(251,255,254,0.5);
   border-radius: 5px;
   text-align:center;
+  vertical-align: center;
+  padding:0 0 4px;
 }
 h3{
-  font-size:28px;
+  font-size:30px;
   text-shadow: 1px 1px #892338;
+  vertical-align: center;
 }
 h5{
   font-size:20px;
-  text-shadow: 1px 1px 1px red;
+  text-shadow: 1px 1px red;
   background-color: rgb(251,255,254,0.5);
   border-radius: 5px;
   text-align:center;
+  vertical-align: center;
+  padding:8px 0;
 }
 
 /* Information */
-
 .Information{
   background-color: rgb(251,255,254,0.5);
   border-radius: 20px;
   padding:10px;
-  margin-top:15px;
+  margin:20px 0 60px;
   text-align: center;
 }
 
 /* Center images */
-.characters,.Enemies,.SelectedChar,.Defender{
-  margin-left: 40px;
+.select{
+  margin-left:30px;
+}
+.enemy,.user,.defender{
+  float:none !important;
+  margin: 0 auto !important;
+  vertical-align: middle;
 }
 
 button.Attack{
-  margin-top: 40px;
-  margin-left: 80px;
+  margin-top: 40px !important;
+  vertical-align: middle;
+
 }
 
 .FightSection,.defenderZone,.charZone,.enemyZone{

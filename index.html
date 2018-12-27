@@ -10,45 +10,46 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header>
-    <h1>Star Wars RPG!</h1>
-  </header>
+  <div class="content container">
+    <header>
+      <h1>Star Wars RPG!</h1>
+    </header>
 
-  <main >
+    <main class="container" >
 
-    <div class= " container row">
-      <div class=" col-4 characters">
-        <h2>Choose your character</h2>
+      <div class= "row justify-content-center">
+        <div class=" col-4 characters">
+          <h2>Choose your character</h2>
+        </div>
+      
+        <div class= "col enemyZone"> 
+          <h5>Enemies left to Attack</h5>
+          <div class="Enemies"></div>
+        </div>
+
+        <div class= "col charZone"> 
+          <h2>Your character</h2>
+          <div class="SelectedChar"></div>
+        </div>
+
+        <div class="col FightSection text-center">
+          <h2>Fight Section</h2>
+          <button type="button" class="Attack btn btn-danger">Attack!</button>
+        </div>
+
+        <div class= "col defenderZone"> 
+          <h2>Defender</h2>
+          <div class="Defender"></div>
+        </div>
+        
       </div>
     
-      <div class= "col-4 enemyZone"> 
-        <h5>Enemies available to Attack</h5>
-        <div class="Enemies"></div>
+      <div class="row justify-content-center">
+        <div class="col-8 Information"></div>
       </div>
 
-      <div class= "col charZone"> 
-        <h2>Your character</h2>
-        <div class="SelectedChar"></div>
-      </div>
-
-      <div class="col FightSection">
-        <h2>Fight Section</h2>
-        <button type="button" class="Attack btn btn-danger">Attack!</button>
-      </div>
-
-      <div class= "col defenderZone"> 
-        <h2>Defender</h2>
-        <div class="Defender"></div>
-      </div>
-      
-    </div>
-  
-    <div class="row justify-content-center">
-      <div class="col-6 Information"></div>
-    </div>
-
-  </main>
-
+    </main>
+  </div>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src=assets/javascript/game.js type="text/javascript"></script>
 
