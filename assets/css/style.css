@@ -1,27 +1,87 @@
+/* Background */
+body {
+  background-image: url("../images/crait.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  opacity: 0.9;
+  color:black;
+}
+
+/* Header */
+h1{
+  font-size:60px;
+  text-shadow: 2px 2px 1px red;
+  text-align: center;
+}
+
+/* Character Cards */
 .cardChar{
   width: 125px;
   padding:0px;
-  border: 2px solid green;
+  border: 2px solid #b7ddf1;
   border-radius: 5px;
   text-align: center;
   float:left;
+  background-color:#0d5aa0;
 }
 img{
-  width: 125px;
+  width: 120px;
 }
-
-.TextHead{
-  clear: both;
+h4{
+  font-size:14px;
+  text-shadow: 1px 1px #892338;
+  text-align: center;
 }
-
 .enemy{
-background-color: red;
+background-color: #b62321;
+border: 2px solid #b6241f;
 }
-
 .defender{
-background-color: grey;
+background-color: #787878;
+border: 2px solid #535353;
 }
 
-.FightSection{
+/* Texts */
+h2{
+  font-size:30px;
+  text-shadow: 1px 1px 1px red;
+  background-color: rgb(251,255,254,0.5);
+  border-radius: 5px;
+  text-align:center;
+}
+h3{
+  font-size:28px;
+  text-shadow: 1px 1px #892338;
+}
+h5{
+  font-size:20px;
+  text-shadow: 1px 1px 1px red;
+  background-color: rgb(251,255,254,0.5);
+  border-radius: 5px;
+  text-align:center;
+}
+
+/* Information */
+
+.Information{
+  background-color: rgb(251,255,254,0.5);
+  border-radius: 20px;
+  padding:10px;
+  margin-top:15px;
+  text-align: center;
+}
+
+/* Center images */
+.characters,.Enemies,.SelectedChar,.Defender{
+  margin-left: 40px;
+}
+
+button.Attack{
+  margin-top: 40px;
+  margin-left: 80px;
+}
+
+.FightSection,.defenderZone,.charZone,.enemyZone{
   visibility: hidden;
 }
+

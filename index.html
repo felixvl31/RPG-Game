@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Star Wars RPG</title>
     <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -13,25 +14,39 @@
     <h1>Star Wars RPG!</h1>
   </header>
 
-  <main>
-    <div class="characters"></div>
+  <main >
+
+    <div class= " container row">
+      <div class=" col-4 characters">
+        <h2>Choose your character</h2>
+      </div>
     
-    <h2 class="TextHead">Your character</h2>
-    <div class="SelectedChar"></div>
+      <div class= "col-4 enemyZone"> 
+        <h5>Enemies available to Attack</h5>
+        <div class="Enemies"></div>
+      </div>
 
-    <h2 class="TextHead">Enemies available to Attack</h2>
-    <div class="Enemies"></div>
+      <div class= "col charZone"> 
+        <h2>Your character</h2>
+        <div class="SelectedChar"></div>
+      </div>
 
-    <h2 class="TextHead">Defender</h2>
-    <div class="Defender"></div>
+      <div class="col FightSection">
+        <h2>Fight Section</h2>
+        <button type="button" class="Attack btn btn-danger">Attack!</button>
+      </div>
 
-    <div class="FightSection">
-      <h2 class="TextHead">Fight Section</h2>
-      <button type="button" class="Attack">Attack!</button>
+      <div class= "col defenderZone"> 
+        <h2>Defender</h2>
+        <div class="Defender"></div>
+      </div>
+      
+    </div>
+  
+    <div class="row justify-content-center">
+      <div class="col-6 Information"></div>
     </div>
 
-    <div class="Information TextHead">
-    </div>
   </main>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

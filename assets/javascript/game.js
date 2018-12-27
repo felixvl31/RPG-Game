@@ -30,7 +30,7 @@ $(document).ready(function() {
   //Append Restart Button Function
   function AppendRestartButton(target){
     var RestartButton = $("<button>");
-    RestartButton.addClass("restart");
+    RestartButton.addClass("restart btn btn-dark");
     RestartButton.text("Restart");
     $(target).append(RestartButton);
   }
@@ -39,8 +39,8 @@ $(document).ready(function() {
   for (i=0; i<game.playableChars.length; i++) {
     var cardChar = $("<div>");
     var imageChar = $("<img>");
-    var nameChar= $("<h2>");
-    var hpChar=$("<h2>");
+    var nameChar= $("<h4>");
+    var hpChar=$("<h4>");
     cardChar.addClass("select cardChar "+i);
     cardChar.attr("name",game.playableChars[i].Name);
     cardChar.attr("health-points",game.playableChars[i].HP);
@@ -67,6 +67,9 @@ $(document).ready(function() {
       game.userAttack = $(".user").attr("attack");
       game.userBaseAttack = $(".user").attr("attack");
       game.userHP =$(".user").attr("health-points");
+      $( ".characters" ).remove();
+      $(".enemyZone").css("visibility","visible");
+      $(".charZone").css("visibility","visible");
     };
   });
 
@@ -82,6 +85,7 @@ $(document).ready(function() {
       game.enemyAttack=$(".defender").attr("counter");
       game.enemyHP =$(".defender").attr("health-points");
       $(".FightSection").css("visibility","visible");
+      $(".defenderZone").css("visibility","visible");
     }
   });
 
@@ -91,8 +95,8 @@ $(document).ready(function() {
     if (game.attackPermit){
       //Clean Information Div, create H3 tags and get Defender name
       $(".Information").empty();
-      var currentInfo = $("<h3>");
-      var currentInfo2 = $("<h3>");
+      var userAction = $("<h3>");
+      var defenderAction = $("<h3>");
       var currentDefender = ($(".defender").attr("name"));
 
       //Attack to Enemy calculation
@@ -104,21 +108,21 @@ $(document).ready(function() {
       }
       else{
         game.userHP -= game.enemyAttack;
-        currentInfo2.text($(".defender").attr("name")+ " attacked you back for "+game.enemyAttack+ " damage")
+        defenderAction.text($(".defender").attr("name")+ " attacked you back for "+game.enemyAttack+ " damage. ")
       }
 
       //Assign User & Defender HP on cards and display User Attack    
       $(".user>.HP").text(game.userHP);
       $(".defender>.HP").text(game.enemyHP);
-      currentInfo.text("You attacked " + currentDefender + " for "+ game.userAttack+ " damage" );
+      userAction.text("You attacked " + currentDefender + " for "+ game.userAttack+ " damage. " );
       
       //Display user and defender attacks if needed
-      $(".Information").append(currentInfo);
-      $(".Information").append(currentInfo2);
+      $(".Information").append(userAction);
+      $(".Information").append(defenderAction);
 
       //If user HP gets lower than 0, Display that user has been defeated and create a Restart Button, remove permit to attack.
       if (game.userHP<=0){
-        $(".Information").append("<h3>"+"You have been defeated....Game Over"+"</h3>");
+        $(".Information").append("<h3>"+"You have been defeated....Game Over. "+"</h3>");
         AppendRestartButton(".Information");
         game.attackPermit = false;
       }
@@ -134,7 +138,7 @@ $(document).ready(function() {
         }
         //Display that user defeated the enemy
         else{
-          $(".Information").append("<h3>"+"You have defeated "+$(".defender").attr("name")+", you can choose to fight another enemy"+"</h3>");
+          $(".Information").append("<h3>"+"You have defeated "+$(".defender").attr("name")+", you can choose to fight another enemy. "+"</h3>");
         }
 
         //Clean Defender Div, Permit to attack revocked and user can select another enemy
