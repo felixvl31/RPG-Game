@@ -22,7 +22,8 @@ var game = {
   enemyAttack: 0,
   userHP: 0,
   enemyHP: 0,
-  battlesCounter:0
+  battlesCounter:0,
+  soundFight:document.getElementById("lightsaber"),
 }
   
 $(document).ready(function() {
@@ -98,6 +99,11 @@ $(document).ready(function() {
       var userAction = $("<h3>");
       var defenderAction = $("<h3>");
       var currentDefender = ($(".defender").attr("name"));
+
+      //Play Sound
+      game.soundFight.pause();  
+      game.soundFight.volume = 0.1;                                                          
+      game.soundFight.play();    
 
       //Attack to Enemy calculation
       game.enemyHP -= game.userAttack;
