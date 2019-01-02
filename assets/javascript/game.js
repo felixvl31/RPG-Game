@@ -9,10 +9,10 @@ class Character {
 
 var game = {
   playableChars : [
-    new Character("Snoke", 180, 15, 50),
-    new Character("Finn", 120, 8, 30),
-    new Character("Rey", 160, 9, 35),
-    new Character("Kylo Ren", 160, 9, 40)
+    new Character("Snoke", 150, 18, 45),
+    new Character("Finn", 140, 14, 25),
+    new Character("Rey", 160, 16, 30),
+    new Character("Kylo Ren", 170, 16, 35)
   ],
   charSelected: false,
   enemySelected: false,
